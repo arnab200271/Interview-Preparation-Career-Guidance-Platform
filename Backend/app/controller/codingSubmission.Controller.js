@@ -2,7 +2,8 @@ const mongoose = require("mongoose");
 const CodingSubmission = require("../model/codingSubmission.Model");
 const CodingQuestion = require("../model/codingQuestion.Model");
 const CodingTest = require("../model/codingTest.Model");
-const { executeTestCase } = require("../utils/jsExecutor");
+// VM-based executor (replaces Docker sandbox – jsExecutor.js kept intact as legacy)
+const { executeTestCase } = require("../utils/vmExecutor");
 
 // Classifies execution errors into standard programming interview verdicts
 const classifyError = (errorMsg) => {

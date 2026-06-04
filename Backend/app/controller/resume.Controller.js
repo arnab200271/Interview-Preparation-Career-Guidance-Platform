@@ -53,6 +53,10 @@ class resumeController {
         portfolio,
         template,
         themeColor,
+        fullName,
+        email,
+        phone,
+        location,
       } = req.body;
       const userId = req.user.id;
       const user = userId;
@@ -81,6 +85,10 @@ class resumeController {
         portfolio,
         template,
         themeColor,
+        fullName,
+        email,
+        phone,
+        location,
         resumeImage: resumeImage_url,
         resumeImagepublic_Id: resumePublic_id,
       });
@@ -165,6 +173,10 @@ class resumeController {
         portfolio,
         template,
         themeColor,
+        fullName,
+        email,
+        phone,
+        location,
       } = req.body;
 
       // update resume// image update
@@ -201,15 +213,23 @@ class resumeController {
 
       resume.certifications = certifications || resume.certifications;
 
-      resume.linkedin = linkedin || resume.linkedin;
+      resume.linkedin = linkedin !== undefined ? linkedin : resume.linkedin;
 
-      resume.github = github || resume.github;
+      resume.github = github !== undefined ? github : resume.github;
 
-      resume.portfolio = portfolio || resume.portfolio;
+      resume.portfolio = portfolio !== undefined ? portfolio : resume.portfolio;
 
       resume.template = template || resume.template;
 
       resume.themeColor = themeColor || resume.themeColor;
+
+      resume.fullName = fullName !== undefined ? fullName : resume.fullName;
+
+      resume.email = email !== undefined ? email : resume.email;
+
+      resume.phone = phone !== undefined ? phone : resume.phone;
+
+      resume.location = location !== undefined ? location : resume.location;
 
       // save
       await resume.save();
@@ -257,15 +277,14 @@ class resumeController {
       // Convert to plain object to allow adding properties dynamically
       const resume = resumeDoc.toObject();
 
-      if (resume.user) {
-        resume.name = resume.user.name;
-        resume.email = resume.user.email;
-        resume.phone = resume.user.phone;
-        resume.location = resume.user.location;
-        if (!resume.github) resume.github = resume.user.github;
-        if (!resume.linkedin) resume.linkedin = resume.user.linkedin;
-        if (!resume.portfolio) resume.portfolio = resume.user.portfolio;
-      }
+      // Use custom resume fields if set, otherwise fallback to the user profile defaults
+      resume.name = resume.fullName || (resume.user ? resume.user.name : "");
+      resume.email = resume.email || (resume.user ? resume.user.email : "");
+      resume.phone = resume.phone || (resume.user ? resume.user.phone : "");
+      resume.location = resume.location || (resume.user ? resume.user.location : "");
+      resume.github = resume.github || (resume.user ? resume.user.github : "");
+      resume.linkedin = resume.linkedin || (resume.user ? resume.user.linkedin : "");
+      resume.portfolio = resume.portfolio || (resume.user ? resume.user.portfolio : "");
 
       //  Get template name
       const templateName = resume.template || "modern";
@@ -273,19 +292,26 @@ class resumeController {
       //  Load HTML template
       let html = getTemplate(templateName);
 
-      //  Replace basic fields
-      html = html.replace("{{name}}", resume.name || "");
-      html = html.replace("{{email}}", resume.email || "");
-      html = html.replace("{{summary}}", resume.summary || "");
-      html = html.replace("{{phone}}", resume.phone || "");
-      html = html.replace("{{location}}", resume.location || "");
+      //  Replace basic fields globally
+      html = html.replace(/{{name}}/g, resume.name || "");
+      html = html.replace(/{{email}}/g, resume.email || "");
+      html = html.replace(/{{summary}}/g, resume.summary || "");
+      html = html.replace(/{{phone}}/g, resume.phone || "");
+      html = html.replace(/{{location}}/g, resume.location || "");
+      html = html.replace(/{{linkedin}}/g, resume.linkedin || "");
+      html = html.replace(/{{github}}/g, resume.github || "");
+      html = html.replace(/{{portfolio}}/g, resume.portfolio || "");
+      html = html.replace(/{{title}}/g, resume.title || "");
+      html = html.replace(/{{jobTitle}}/g, resume.title || "");
+      html = html.replace(/{{headline}}/g, resume.title || "");
+      html = html.replace(/{{resumeImage}}/g, resume.resumeImage || "");
 
       //  Skills
       const skillsHTML = (resume.skills || [])
         .map((skill) => `<span class="tag">${skill}</span>`)
         .join("");
 
-      html = html.replace("{{skills}}", skillsHTML);
+      html = html.replace(/{{skills}}/g, skillsHTML);
 
       // Education
       const educationHTML = (resume.education || [])
@@ -293,8 +319,8 @@ class resumeController {
           (e) => `
          <div class="education-item">
             <div class="edu-header">
-              <span class="edu-degree"><b>${e.degree || ""}</b>${e.fieldOfStudy ? " in " + e.fieldOfStudy : ""}</span>
-              <span class="edu-date">${e.startYear || ""}-${e.endYear || ""}</span>
+               <span class="edu-degree"><b>${e.degree || ""}</b>${e.fieldOfStudy ? " in " + e.fieldOfStudy : ""}</span>
+               <span class="edu-date">${e.startYear || ""}-${e.endYear || ""}</span>
             </div>
             <div class="edu-institute">${e.institute || ""}</div>
             ${e.grade ? `<div class="edu-grade">Grade: ${e.grade}</div>` : ""}
@@ -303,7 +329,7 @@ class resumeController {
         )
         .join("");
 
-      html = html.replace("{{education}}", educationHTML);
+      html = html.replace(/{{education}}/g, educationHTML);
 
       // Experience
       const experienceHTML = (resume.experience || [])
@@ -311,8 +337,8 @@ class resumeController {
           (e) => `
          <div class="experience-item">
             <div class="exp-header">
-              <span class="exp-role"><b>${e.position || ""}</b></span>
-              <span class="exp-date">${e.startDate || ""}-${e.endDate || (e.currentlyWorking ? "Present" : "")}</span>
+               <span class="exp-role"><b>${e.position || ""}</b></span>
+               <span class="exp-date">${e.startDate || ""}-${e.endDate || (e.currentlyWorking ? "Present" : "")}</span>
             </div>
             <div class="exp-company">${e.company || ""}</div>
             <p class="exp-desc">${e.description || ""}</p>
@@ -321,7 +347,7 @@ class resumeController {
         )
         .join("");
 
-      html = html.replace("{{experience}}", experienceHTML);
+      html = html.replace(/{{experience}}/g, experienceHTML);
 
       //  Projects
       const projectHTML = (resume.projects || [])
@@ -329,11 +355,11 @@ class resumeController {
           (p) => `
          <div class="project-item">
             <div class="project-header">
-              <span class="project-title"><b>${p.title || ""}</b></span>
-              <span class="project-links">
-                ${p.githubLink ? `<a href="${p.githubLink}" target="_blank">GitHub</a>` : ""}
-                ${p.liveLink ? `${p.githubLink ? " | " : ""}<a href="${p.liveLink}" target="_blank">Live Demo</a>` : ""}
-              </span>
+               <span class="project-title"><b>${p.title || ""}</b></span>
+               <span class="project-links">
+                 ${p.githubLink ? `<a href="${p.githubLink}" target="_blank">GitHub</a>` : ""}
+                 ${p.liveLink ? `${p.githubLink ? " | " : ""}<a href="${p.liveLink}" target="_blank">Live Demo</a>` : ""}
+               </span>
             </div>
             <p class="project-desc">${p.description || ""}</p>
             ${p.technologies && p.technologies.length > 0 ? `<div class="project-tech"><b>Technologies:</b> ${p.technologies.join(", ")}</div>` : ""}
@@ -342,36 +368,31 @@ class resumeController {
         )
         .join("");
 
-      html = html.replace("{{projects}}", projectHTML);
+      html = html.replace(/{{projects}}/g, projectHTML);
 
       //  Languages
-      html = html.replace("{{languages}}", (resume.languages || []).join(", "));
+      html = html.replace(/{{languages}}/g, (resume.languages || []).join(", "));
 
       //  Certifications
       const certHTML = (resume.certifications || [])
         .map((c) => {
           if (typeof c === "object" && c !== null) {
             return `
-              <div class="certification-item">
-                <div class="cert-header">
-                  <span class="cert-title"><b>${c.title || ""}</b></span>
-                  ${c.issueDate ? `<span class="cert-date">${c.issueDate}</span>` : ""}
-                </div>
-                ${c.issuer ? `<div class="cert-issuer">${c.issuer}</div>` : ""}
-                ${c.certificateLink ? `<div class="cert-link"><a href="${c.certificateLink}" target="_blank">View Certificate</a></div>` : ""}
-              </div>
-            `;
+               <div class="certification-item">
+                 <div class="cert-header">
+                   <span class="cert-title"><b>${c.title || ""}</b></span>
+                   ${c.issueDate ? `<span class="cert-date">${c.issueDate}</span>` : ""}
+                 </div>
+                 ${c.issuer ? `<div class="cert-issuer">${c.issuer}</div>` : ""}
+                 ${c.certificateLink ? `<div class="cert-link"><a href="${c.certificateLink}" target="_blank">View Certificate</a></div>` : ""}
+               </div>
+             `;
           }
           return `<p>${c}</p>`;
         })
         .join("");
 
-      html = html.replace("{{certifications}}", certHTML);
-
-      // Individual link replacements
-      html = html.replace("{{linkedin}}", resume.linkedin || "");
-      html = html.replace("{{github}}", resume.github || "");
-      html = html.replace("{{portfolio}}", resume.portfolio || "");
+      html = html.replace(/{{certifications}}/g, certHTML);
 
       //  Links block
       const linkHTML = `
@@ -380,7 +401,7 @@ class resumeController {
          <p>${resume.portfolio || ""}</p>
       `;
 
-      html = html.replace("{{links}}", linkHTML);
+      html = html.replace(/{{links}}/g, linkHTML);
 
       //  Generate PDF
       const pdfBuffer = await generateResumePDF(html);

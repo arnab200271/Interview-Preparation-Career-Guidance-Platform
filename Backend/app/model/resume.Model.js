@@ -34,6 +34,24 @@ const resumeSchema = new schema({
     type: String,
     required: true,
   },
+  fullName: {
+    type: String,
+  },
+  email: {
+    type: String,
+  },
+  phone: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  github: {
+    type: String,
+  },
+  portfolio: {
+    type: String,
+  },
   summary: {
     type: String,
     required: true,
