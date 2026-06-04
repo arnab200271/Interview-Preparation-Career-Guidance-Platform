@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <title>Professional Resume</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: #f5f7fb;
+      color: #111827;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .resume {
+      width: 210mm;
+      min-height: 297mm;
+      display: flex;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    /* LEFT SIDEBAR */
+
+    .sidebar {
+      width: 34%;
+      background: linear-gradient(180deg, #143b77 0%, #0d2c5d 100%);
+      color: #fff;
+      padding: 32px 24px;
+      position: relative;
+    }
+
+    .sidebar::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 10px 10px;
+      pointer-events: none;
+    }
+
+    .profile-image {
+      width: 140px;
+      height: 160px;
+      border: 4px solid rgba(255,255,255,0.15);
+      overflow: hidden;
+      margin: 0 auto 28px;
+      position: relative;
+      z-index: 2;
+      background: #dbeafe;
+    }
+
+    .profile-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .sidebar-section {
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .sidebar-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      text-transform: uppercase;
+    }
+
+    .contact-item {
+      margin-bottom: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .summary {
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .skill-list {
+      padding-left: 18px;
+    }
+
+    .skill-list li {
+      margin-bottom: 7px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    /* MAIN CONTENT */
+
+    .main {
+      width: 66%;
+      padding: 36px 40px;
+    }
+
+    .name {
+      font-size: 44px;
+      font-weight: 800;
+      color: #18468d;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      font-weight: 700;
+      color: #111827;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid #1d4f9a;
+    }
+
+    .item {
+      margin-bottom: 18px;
+    }
+
+    .item-title {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+
+    .item-subtitle {
+      font-size: 14px;
+      color: #374151;
+      margin-bottom: 4px;
+    }
+
+    .item-date {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+
+    .item-description {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #374151;
+    }
+
+    .item-description ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .item-description li {
+      margin-bottom: 4px;
+    }
+
+    .languages {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .language-box {
+      font-size: 13px;
+    }
+
+    .language-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .language-level {
+      color: #4b5563;
+      margin-bottom: 6px;
+    }
+
+    .progress {
+      width: 100%;
+      height: 5px;
+      background: #d1d5db;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: #18468d;
+    }
+
+    .interest-list {
+      padding-left: 18px;
+    }
+
+    .interest-list li {
+      margin-bottom: 6px;
+      font-size: 13px;
+    }
+
+    .project-links {
+      margin-top: 6px;
+      font-size: 12px;
+    }
+
+    .project-links a {
+      color: #18468d;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="resume">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+
+      <div class="profile-image">
+        <img src="{{resumeImage}}" alt="profile">
+      </div>
+
+      <!-- CONTACT -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">Contact</h2>
+
+        <div class="contact-item">
+           {{location}}
+        </div>
+
+        <div class="contact-item">
+           {{phone}}
+        </div>
+
+        <div class="contact-item">
+           {{email}}
+        </div>
+
+        <div class="contact-item">
+           {{linkedin}}
+        </div>
+
+        <div class="contact-item">
+           {{github}}
+        </div>
+
+        <div class="contact-item">
+           {{portfolio}}
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">Summary</h2>
+
+        <p class="summary">
+          {{summary}}
+        </p>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="sidebar-section">
+        <h2 class="sidebar-title">Skills</h2>
+
+        <ul class="skill-list">
+          {{skills}}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main">
+
+      <h1 class="name">{{name}}</h1>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <h2 class="section-title">Experience</h2>
+
+        {{experience}}
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <h2 class="section-title">Education and Training</h2>
+
+        {{education}}
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <h2 class="section-title">Languages</h2>
+
+        <div class="languages">
+          {{languages}}
+        </div>
+      </div>
+
+      <!-- INTEREST -->
+      <div class="section">
+        <h2 class="section-title">Interest</h2>
+
+        <ul class="interest-list">
+          <li>Frontend Development</li>
+          <li>Backend Development</li>
+          <li>MERN Stack Development</li>
+          <li>Problem Solving</li>
+        </ul>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <h2 class="section-title">Projects</h2>
+
+        {{projects}}
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section">
+        <h2 class="section-title">Certifications</h2>
+
+        {{certifications}}
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

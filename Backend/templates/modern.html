@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Professional Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 210mm;
+        min-height: 297mm;
+        background-color: #ffffff;
+        color: #334155;
+        font-size: 13px;
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .resume-wrapper {
+        display: flex;
+        min-height: 297mm;
+        width: 100%;
+      }
+      /* Sidebar */
+      .sidebar {
+        width: 33%;
+        background-color: #1e293b;
+        color: #f8fafc;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      /* Main Content */
+      .main-content {
+        width: 67%;
+        padding: 40px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+      }
+      /* Headings */
+      .sidebar h3 {
+        color: #38bdf8;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin: 0 0 10px 0;
+        border-bottom: 1px solid #334155;
+        padding-bottom: 6px;
+        font-weight: 600;
+      }
+      .main-content h3 {
+        color: #1e293b;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin: 0 0 12px 0;
+        border-bottom: 2px solid #3b82f6;
+        padding-bottom: 4px;
+        display: inline-block;
+        font-weight: 700;
+      }
+      /* Contact Section */
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 12px;
+      }
+      .contact-item {
+        display: flex;
+        flex-direction: column;
+        word-break: break-all;
+      }
+      .contact-label {
+        font-weight: 600;
+        color: #94a3b8;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .contact-value,
+      .contact-value a {
+        color: #e2e8f0;
+        text-decoration: none;
+      }
+      .contact-value a:hover {
+        text-decoration: underline;
+      }
+      /* Header (Main Content) */
+      .header {
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #0f172a;
+        margin: 0 0 5px 0;
+        letter-spacing: -0.5px;
+        line-height: 1.1;
+      }
+      .summary-text {
+        color: #475569;
+        font-size: 13.5px;
+        margin: 0;
+        text-align: justify;
+      }
+      /* Skill tags */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 5px;
+      }
+      .tag {
+        background-color: #334155;
+        color: #f1f5f9;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 500;
+      }
+      /* Languages */
+      .languages-text {
+        font-size: 12.5px;
+        color: #e2e8f0;
+      }
+      /* Lists / Experience & Education */
+      .education-item,
+      .experience-item,
+      .project-item,
+      .certification-item {
+        margin-bottom: 16px;
+      }
+      .education-item:last-child,
+      .experience-item:last-child,
+      .project-item:last-child,
+      .certification-item:last-child {
+        margin-bottom: 0;
+      }
+      .edu-header,
+      .exp-header,
+      .project-header,
+      .cert-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 13.5px;
+        margin-bottom: 3px;
+      }
+      .edu-degree,
+      .exp-role,
+      .project-title,
+      .cert-title {
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .edu-date,
+      .exp-date,
+      .cert-date {
+        font-size: 11.5px;
+        color: #64748b;
+        font-weight: 500;
+        white-space: nowrap;
+      }
+      .edu-institute,
+      .exp-company,
+      .cert-issuer {
+        font-weight: 500;
+        color: #3b82f6;
+        font-size: 12.5px;
+        margin-bottom: 4px;
+      }
+      .edu-grade {
+        font-size: 11.5px;
+        color: #64748b;
+        font-style: italic;
+      }
+      .exp-desc,
+      .project-desc {
+        margin: 4px 0 0 0;
+        color: #475569;
+        text-align: justify;
+        font-size: 12.5px;
+      }
+      .project-links {
+        font-size: 11px;
+        white-space: nowrap;
+      }
+      .project-links a,
+      .cert-link a {
+        color: #2563eb;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .project-links a:hover,
+      .cert-link a:hover {
+        text-decoration: underline;
+      }
+      .project-tech {
+        font-size: 11.5px;
+        color: #475569;
+        margin-top: 4px;
+      }
+      .project-tech b {
+        color: #1e293b;
+      }
+      .certification-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        font-size: 12px;
+        border-left: 2px solid #334155;
+        padding-left: 8px;
+      }
+      .cert-title-sidebar {
+        font-weight: 600;
+        color: #f1f5f9;
+      }
+      .cert-issuer-sidebar {
+        color: #94a3b8;
+        font-size: 11px;
+      }
+      .cert-date-sidebar {
+        color: #64748b;
+        font-size: 10px;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="resume-wrapper">
+      <!-- LEFT SIDEBAR -->
+      <div class="sidebar">
+        <div>
+          <h3>Contact</h3>
+          <div class="contact-info">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <span class="contact-value"
+                ><a href="mailto:{{email}}">{{email}}</a></span
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Phone</span>
+              <span class="contact-value">{{phone}}</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Location</span>
+              <span class="contact-value">{{location}}</span>
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">LinkedIn</span>
+              <span class="contact-value"
+                ><a href="{{linkedin}}" target="_blank"
+                  >linkedin.com/in/{{name}}</a
+                ></span
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">GitHub</span>
+              <span class="contact-value"
+                ><a href="{{github}}" target="_blank"
+                  >github.com/{{name}}</a
+                ></span
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-label">Portfolio</span>
+              <span class="contact-value"
+                ><a href="{{portfolio}}" target="_blank"
+                  >portfolio.me/{{name}}</a
+                ></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3>Skills</h3>
+          <div class="skills-container">{{skills}}</div>
+        </div>
+
+        <div>
+          <h3>Languages</h3>
+          <div class="languages-text">{{languages}}</div>
+        </div>
+
+        <div>
+          <h3>Certifications</h3>
+          <div style="display: flex; flex-direction: column; gap: 10px">
+            {{certifications}}
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
+        <div class="header">
+          <h1>{{name}}</h1>
+          <p class="summary-text">{{summary}}</p>
+        </div>
+
+        <div class="section">
+          <h3>Work Experience</h3>
+          <div>{{experience}}</div>
+        </div>
+
+        <div class="section">
+          <h3>Education</h3>
+          <div>{{education}}</div>
+        </div>
+
+        <div class="section">
+          <h3>Featured Projects</h3>
+          <div>{{projects}}</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

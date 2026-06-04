@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Creative Developer Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 210mm;
+        min-height: 297mm;
+        background-color: #0b0f19;
+        color: #94a3b8;
+        font-size: 13px;
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .wrapper {
+        padding: 40px 35px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        min-height: 297mm;
+      }
+      /* Header section */
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        border-bottom: 1px solid #1e293b;
+        padding-bottom: 20px;
+      }
+      .header-left h1 {
+        font-size: 32px;
+        font-weight: 700;
+        color: #f8fafc;
+        margin: 0 0 4px 0;
+        letter-spacing: -0.5px;
+      }
+      .header-left h1 span {
+        color: #10b981; /* Neon green */
+      }
+      .header-left .title-sub {
+        font-family: "Fira Code", monospace;
+        font-size: 14px;
+        color: #38bdf8;
+        margin: 0;
+      }
+      .header-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 6px;
+        font-size: 12px;
+        font-family: "Fira Code", monospace;
+      }
+      .header-right a {
+        color: #10b981;
+        text-decoration: none;
+      }
+      .header-right a:hover {
+        text-decoration: underline;
+      }
+      .summary-box {
+        background-color: #111827;
+        border-left: 3px solid #10b981;
+        padding: 12px 18px;
+        border-radius: 0 8px 8px 0;
+        color: #cbd5e1;
+        font-size: 13px;
+      }
+      /* Section Layout */
+      .grid-container {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 25px;
+      }
+      .section-title {
+        font-family: "Fira Code", monospace;
+        color: #f8fafc;
+        font-size: 15px;
+        margin: 0 0 15px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-title::before {
+        content: ">";
+        color: #10b981;
+        font-weight: bold;
+      }
+      .card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .card {
+        background-color: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 8px;
+        padding: 15px;
+        transition: border-color 0.2s ease;
+      }
+      /* Experence, Education, Projects inside cards */
+      .education-item,
+      .experience-item,
+      .project-item,
+      .certification-item {
+        margin-bottom: 0; /* Handled by card gap */
+      }
+      .edu-header,
+      .exp-header,
+      .project-header,
+      .cert-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 4px;
+      }
+      .edu-degree,
+      .exp-role,
+      .project-title,
+      .cert-title {
+        font-weight: 600;
+        color: #f8fafc;
+        font-size: 14px;
+      }
+      .edu-date,
+      .exp-date,
+      .cert-date {
+        font-family: "Fira Code", monospace;
+        font-size: 11px;
+        color: #38bdf8;
+      }
+      .edu-institute,
+      .exp-company,
+      .cert-issuer {
+        font-weight: 500;
+        color: #10b981;
+        font-size: 12.5px;
+        margin-bottom: 8px;
+      }
+      .edu-grade {
+        font-size: 11px;
+        color: #94a3b8;
+      }
+      .exp-desc,
+      .project-desc {
+        color: #94a3b8;
+        margin: 6px 0 0 0;
+        font-size: 12.5px;
+      }
+      .project-links,
+      .cert-link {
+        font-family: "Fira Code", monospace;
+        font-size: 11px;
+      }
+      .project-links a,
+      .cert-link a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+      .project-links a:hover,
+      .cert-link a:hover {
+        text-decoration: underline;
+      }
+      .project-tech {
+        font-family: "Fira Code", monospace;
+        font-size: 11.5px;
+        color: #38bdf8;
+        margin-top: 8px;
+      }
+      /* Skills */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tag {
+        background-color: #111827;
+        border: 1px solid #10b981;
+        color: #10b981;
+        font-family: "Fira Code", monospace;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-size: 11.5px;
+      }
+      /* Certifications inside side card */
+      .side-card-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .cert-item-side {
+        border-bottom: 1px solid #1e293b;
+        padding-bottom: 8px;
+      }
+      .cert-item-side:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- HEADER -->
+      <div class="header">
+        <div class="header-left">
+          <h1>{{name}}<span>()</span></h1>
+          <p class="title-sub">// Software Engineer & Creator</p>
+        </div>
+        <div class="header-right">
+          <span>loc: {{location}}</span>
+          <span>tel: {{phone}}</span>
+          <span>eml: <a href="mailto:{{email}}">{{email}}</a></span>
+          <span
+            >web:
+            <a href="{{portfolio}}" target="_blank">{{portfolio}}</a></span
+          >
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary-box">{{summary}}</div>
+
+      <!-- TWO COLUMN GRID -->
+      <div class="grid-container">
+        <!-- Left (Main content) -->
+        <div style="display: flex; flex-direction: column; gap: 25px">
+          <div>
+            <h3 class="section-title">experience</h3>
+            <div class="card-list">
+              <!-- Experience items will be converted to cards dynamically via CSS wrapping -->
+              <style>
+                .experience-item {
+                  background-color: #1e293b;
+                  border: 1px solid #334155;
+                  border-radius: 8px;
+                  padding: 15px;
+                  margin-bottom: 15px;
+                }
+              </style>
+              {{experience}}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="section-title">projects</h3>
+            <div class="card-list">
+              <style>
+                .project-item {
+                  background-color: #1e293b;
+                  border: 1px solid #334155;
+                  border-radius: 8px;
+                  padding: 15px;
+                  margin-bottom: 15px;
+                }
+              </style>
+              {{projects}}
+            </div>
+          </div>
+        </div>
+
+        <!-- Right (Sidebar) -->
+        <div style="display: flex; flex-direction: column; gap: 25px">
+          <div>
+            <h3 class="section-title">skills</h3>
+            <div class="skills-container">{{skills}}</div>
+          </div>
+
+          <div>
+            <h3 class="section-title">education</h3>
+            <div class="card-list">
+              <style>
+                .education-item {
+                  background-color: #1e293b;
+                  border: 1px solid #334155;
+                  border-radius: 8px;
+                  padding: 15px;
+                  margin-bottom: 15px;
+                }
+              </style>
+              {{education}}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="section-title">certifications</h3>
+            <div class="card-list">
+              <style>
+                .certification-item {
+                  background-color: #1e293b;
+                  border: 1px solid #334155;
+                  border-radius: 8px;
+                  padding: 15px;
+                  margin-bottom: 15px;
+                }
+              </style>
+              {{certifications}}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="section-title">socials</h3>
+            <div
+              class="card"
+              style="
+                font-family: &quot;Fira Code&quot;, monospace;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+              "
+            >
+              <div>
+                github:
+                <a
+                  href="{{github}}"
+                  target="_blank"
+                  style="color: #38bdf8; text-decoration: none"
+                  >@{{name}}</a
+                >
+              </div>
+              <div>
+                linkedin:
+                <a
+                  href="{{linkedin}}"
+                  target="_blank"
+                  style="color: #38bdf8; text-decoration: none"
+                  >@{{name}}</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Executive Premium Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: "Lato", sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 210mm;
+        min-height: 297mm;
+        background-color: #ffffff;
+        color: #292524;
+        font-size: 13.5px;
+        line-height: 1.6;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .wrapper {
+        padding: 50px 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        min-height: 297mm;
+      }
+      /* Luxury Header */
+      .header {
+        text-align: center;
+        border-bottom: 1px double #c5a880; /* Elegant gold double border */
+        padding-bottom: 25px;
+        margin-bottom: 10px;
+      }
+      .header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #1c1917;
+        margin: 0 0 8px 0;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+      }
+      .contact-info {
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #78716c;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .contact-info a {
+        color: #78716c;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .contact-info a:hover {
+        color: #c5a880;
+      }
+      .separator {
+        color: #c5a880;
+      }
+      /* Summary Block */
+      .summary-section {
+        font-family: "Playfair Display", serif;
+        font-style: italic;
+        font-size: 15px;
+        color: #44403c;
+        text-align: center;
+        max-width: 90%;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+      /* Sections styling */
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #1c1917;
+        border-bottom: 1px solid #c5a880;
+        margin: 0 0 18px 0;
+        padding-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .section {
+        margin-bottom: 10px;
+      }
+      /* Items structure */
+      .education-item,
+      .experience-item,
+      .project-item,
+      .certification-item {
+        margin-bottom: 20px;
+      }
+      .education-item:last-child,
+      .experience-item:last-child,
+      .project-item:last-child,
+      .certification-item:last-child {
+        margin-bottom: 0;
+      }
+      .edu-header,
+      .exp-header,
+      .project-header,
+      .cert-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 14.5px;
+        margin-bottom: 4px;
+      }
+      .edu-degree,
+      .exp-role,
+      .project-title,
+      .cert-title {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+        color: #1c1917;
+      }
+      .edu-date,
+      .exp-date,
+      .cert-date {
+        font-size: 12px;
+        color: #78716c;
+        font-weight: 400;
+      }
+      .edu-institute,
+      .exp-company,
+      .cert-issuer {
+        font-weight: 600;
+        color: #c5a880; /* Gold */
+        font-size: 13.5px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+      }
+      .edu-grade {
+        font-size: 12px;
+        color: #78716c;
+        font-style: italic;
+      }
+      .exp-desc,
+      .project-desc {
+        margin: 6px 0 0 0;
+        color: #44403c;
+        text-align: justify;
+        font-size: 13px;
+      }
+      .project-links,
+      .cert-link {
+        font-size: 12px;
+      }
+      .project-links a,
+      .cert-link a {
+        color: #c5a880;
+        text-decoration: underline;
+      }
+      .project-tech {
+        font-size: 12px;
+        color: #78716c;
+        margin-top: 6px;
+      }
+      /* Skill tags */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .tag {
+        border: 1px solid #c5a880;
+        background-color: transparent;
+        color: #1c1917;
+        padding: 5px 12px;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+      .languages-text {
+        font-size: 13.5px;
+        color: #44403c;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- HEADER -->
+      <div class="header">
+        <h1>{{name}}</h1>
+        <div class="contact-info">
+          <span>{{location}}</span>
+          <span class="separator">|</span>
+          <span>{{phone}}</span>
+          <span class="separator">|</span>
+          <span><a href="mailto:{{email}}">{{email}}</a></span>
+        </div>
+        <div class="contact-info" style="margin-top: 5px">
+          <span><a href="{{linkedin}}" target="_blank">LinkedIn</a></span>
+          <span class="separator">|</span>
+          <span><a href="{{github}}" target="_blank">GitHub</a></span>
+          <span class="separator">|</span>
+          <span><a href="{{portfolio}}" target="_blank">Portfolio</a></span>
+        </div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="summary-section">&ldquo;{{summary}}&rdquo;</div>
+
+      <!-- EXPERIENCE -->
+      <div class="section">
+        <div class="section-title">Professional History</div>
+        <div>{{experience}}</div>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="section">
+        <div class="section-title">Academic Background</div>
+        <div>{{education}}</div>
+      </div>
+
+      <!-- PROJECTS -->
+      <div class="section">
+        <div class="section-title">Key Projects & Ventures</div>
+        <div>{{projects}}</div>
+      </div>
+
+      <!-- SKILLS -->
+      <div class="section">
+        <div class="section-title">Core Expertise</div>
+        <div class="skills-container">{{skills}}</div>
+      </div>
+
+      <!-- CERTIFICATIONS -->
+      <div class="section">
+        <div class="section-title">Certifications & Credentials</div>
+        <div>{{certifications}}</div>
+      </div>
+
+      <!-- LANGUAGES -->
+      <div class="section">
+        <div class="section-title">Languages</div>
+        <div class="languages-text">{{languages}}</div>
+      </div>
+    </div>
+  </body>
+</html>

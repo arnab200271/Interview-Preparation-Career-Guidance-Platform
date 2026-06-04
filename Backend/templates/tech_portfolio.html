@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Portfolio Resume</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 210mm;
+        min-height: 297mm;
+        background-color: #f1f5f9;
+        color: #334155;
+        font-size: 13px;
+        line-height: 1.5;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .wrapper {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        min-height: 297mm;
+      }
+      /* Tech Header */
+      .header-panel {
+        background-color: #0f172a;
+        color: #f8fafc;
+        border-radius: 12px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        border-bottom: 4px solid #8b5cf6; /* Violet accent */
+      }
+      .header-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .header-title h1 {
+        font-size: 30px;
+        font-weight: 700;
+        margin: 0 0 5px 0;
+        letter-spacing: -0.5px;
+        color: #ffffff;
+      }
+      .header-title .role {
+        font-family: "Fira Code", monospace;
+        color: #a78bfa;
+        font-size: 14px;
+        margin: 0;
+      }
+      .links-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+        font-family: "Fira Code", monospace;
+        font-size: 11.5px;
+      }
+      .links-grid a {
+        color: #38bdf8;
+        text-decoration: none;
+      }
+      .links-grid a:hover {
+        text-decoration: underline;
+      }
+      .tech-summary {
+        font-size: 13px;
+        color: #cbd5e1;
+        border-top: 1px solid #334155;
+        padding-top: 12px;
+        line-height: 1.6;
+      }
+      /* Layout structure */
+      .sections-grid {
+        display: grid;
+        grid-template-columns: 1.8fr 1.2fr;
+        gap: 25px;
+      }
+      .panel {
+        background-color: #ffffff;
+        border-radius: 12px;
+        padding: 24px;
+        border: 1px solid #e2e8f0;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      .panel-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #0f172a;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0;
+        border-bottom: 2px solid #f1f5f9;
+        padding-bottom: 8px;
+      }
+      .panel-title::before {
+        content: "";
+        width: 4px;
+        height: 16px;
+        background-color: #8b5cf6;
+        border-radius: 2px;
+        display: inline-block;
+      }
+      /* Child Lists Formatting */
+      .experience-item,
+      .project-item,
+      .education-item,
+      .certification-item {
+        margin-bottom: 0;
+      }
+      .items-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .edu-header,
+      .exp-header,
+      .project-header,
+      .cert-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-size: 13.5px;
+        margin-bottom: 3px;
+      }
+      .edu-degree,
+      .exp-role,
+      .project-title,
+      .cert-title {
+        font-weight: 600;
+        color: #0f172a;
+      }
+      .edu-date,
+      .exp-date,
+      .cert-date {
+        font-family: "Fira Code", monospace;
+        font-size: 11px;
+        color: #8b5cf6;
+        font-weight: 500;
+      }
+      .edu-institute,
+      .exp-company,
+      .cert-issuer {
+        font-weight: 500;
+        color: #6366f1;
+        font-size: 12.5px;
+        margin-bottom: 4px;
+      }
+      .edu-grade {
+        font-size: 11.5px;
+        color: #64748b;
+      }
+      .exp-desc,
+      .project-desc {
+        color: #475569;
+        margin: 4px 0 0 0;
+        font-size: 12.5px;
+      }
+      .project-links,
+      .cert-link {
+        font-family: "Fira Code", monospace;
+        font-size: 11px;
+      }
+      .project-links a,
+      .cert-link a {
+        color: #6366f1;
+        text-decoration: none;
+      }
+      .project-links a:hover,
+      .cert-link a:hover {
+        text-decoration: underline;
+      }
+      .project-tech {
+        font-family: "Fira Code", monospace;
+        font-size: 11px;
+        color: #8b5cf6;
+        background-color: #faf5ff;
+        border: 1px solid #f3e8ff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        display: inline-block;
+        margin-top: 6px;
+      }
+      /* Skills */
+      .skills-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+      .tag {
+        background-color: #faf5ff;
+        color: #8b5cf6;
+        border: 1px solid #e9d5ff;
+        padding: 4px 8px;
+        border-radius: 4px;
+        font-family: "Fira Code", monospace;
+        font-size: 11.5px;
+        font-weight: 500;
+      }
+      .languages-text {
+        font-family: "Fira Code", monospace;
+        font-size: 12px;
+        color: #475569;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- PANEL HEADER -->
+      <div class="header-panel">
+        <div class="header-top">
+          <div class="header-title">
+            <h1>{{name}}</h1>
+            <p class="role">&lt; Full Stack Software Developer /&gt;</p>
+          </div>
+          <div class="links-grid">
+            <div>📧 <a href="mailto:{{email}}">{{email}}</a></div>
+            <div>📞 <span>{{phone}}</span></div>
+            <div>
+              💻 <a href="{{portfolio}}" target="_blank">portfolio.io</a>
+            </div>
+            <div>🐙 <a href="{{github}}" target="_blank">github.com</a></div>
+            <div>
+              💼 <a href="{{linkedin}}" target="_blank">linkedin.com</a>
+            </div>
+            <div>📍 <span>{{location}}</span></div>
+          </div>
+        </div>
+        <div class="tech-summary">{{summary}}</div>
+      </div>
+
+      <!-- MAIN BODY GRIDS -->
+      <div class="sections-grid">
+        <!-- Left side panels -->
+        <div style="display: flex; flex-direction: column; gap: 25px">
+          <div class="panel">
+            <h3 class="panel-title">work experience</h3>
+            <div class="items-container">
+              <style>
+                .experience-item {
+                  border-bottom: 1px solid #f1f5f9;
+                  padding-bottom: 14px;
+                }
+                .experience-item:last-child {
+                  border-bottom: none;
+                  padding-bottom: 0;
+                }
+              </style>
+              {{experience}}
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel-title">featured projects</h3>
+            <div class="items-container">
+              <style>
+                .project-item {
+                  border-bottom: 1px solid #f1f5f9;
+                  padding-bottom: 14px;
+                }
+                .project-item:last-child {
+                  border-bottom: none;
+                  padding-bottom: 0;
+                }
+              </style>
+              {{projects}}
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side panels -->
+        <div style="display: flex; flex-direction: column; gap: 25px">
+          <div class="panel">
+            <h3 class="panel-title">technical stack</h3>
+            <div class="skills-container">{{skills}}</div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel-title">education</h3>
+            <div class="items-container">
+              <style>
+                .education-item {
+                  border-bottom: 1px solid #f1f5f9;
+                  padding-bottom: 10px;
+                }
+                .education-item:last-child {
+                  border-bottom: none;
+                  padding-bottom: 0;
+                }
+              </style>
+              {{education}}
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel-title">certifications</h3>
+            <div class="items-container">
+              <style>
+                .certification-item {
+                  border-bottom: 1px solid #f1f5f9;
+                  padding-bottom: 10px;
+                }
+                .certification-item:last-child {
+                  border-bottom: none;
+                  padding-bottom: 0;
+                }
+              </style>
+              {{certifications}}
+            </div>
+          </div>
+
+          <div class="panel">
+            <h3 class="panel-title">languages</h3>
+            <div class="languages-text">{{languages}}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

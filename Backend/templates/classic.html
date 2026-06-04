@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Classic ATS Resume</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 20mm;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      body {
+        font-family: "Times New Roman", Times, Georgia, serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff;
+        color: #000000;
+        font-size: 11pt;
+        line-height: 1.35;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+  
+      }
+      .header {
+        text-align: center;
+        margin-bottom: 12pt;
+      }
+      .header h1 {
+        font-size: 20pt;
+        margin: 0 0 4pt 0;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+      }
+      .contact-info {
+        font-size: 10pt;
+        margin-bottom: 6pt;
+      }
+      .contact-info a {
+        color: #000000;
+        text-decoration: none;
+      }
+      .summary-section {
+        text-align: justify;
+        margin-bottom: 12pt;
+        font-size: 10.5pt;
+      }
+      .section-title {
+        font-size: 11pt;
+        font-weight: bold;
+        text-transform: uppercase;
+        border-bottom: 1px solid #000000;
+        margin: 14pt 0 6pt 0;
+        padding-bottom: 2pt;
+        letter-spacing: 0.5px;
+      }
+      /* Skills */
+      .skills-container {
+        font-size: 10pt;
+      }
+      .tag {
+        font-weight: normal;
+      }
+      .tag::after {
+        content: ", ";
+      }
+      .tag:last-child::after {
+        content: "";
+      }
+      /* Lists */
+      .education-item,
+      .experience-item,
+      .project-item,
+      .certification-item {
+        margin-bottom: 8pt;
+      }
+      .edu-header,
+      .exp-header,
+      .project-header,
+      .cert-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        font-weight: bold;
+        font-size: 10.5pt;
+      }
+      .edu-degree,
+      .exp-role,
+      .project-title,
+      .cert-title {
+        font-weight: bold;
+      }
+      .edu-date,
+      .exp-date,
+      .cert-date {
+        font-weight: normal;
+        font-size: 10pt;
+      }
+      .edu-institute,
+      .exp-company,
+      .cert-issuer {
+        font-style: italic;
+        font-size: 10pt;
+        margin-bottom: 2pt;
+      }
+      .edu-grade {
+        font-size: 9.5pt;
+        font-style: italic;
+      }
+      .exp-desc,
+      .project-desc {
+        margin: 2pt 0 0 0;
+        font-size: 10pt;
+        text-align: justify;
+      }
+      .project-links,
+      .cert-link {
+        font-size: 9.5pt;
+        font-weight: normal;
+      }
+      .project-links a,
+      .cert-link a {
+        color: #000000;
+        text-decoration: underline;
+      }
+      .project-tech {
+        font-size: 9.5pt;
+        margin-top: 2pt;
+      }
+      .languages-text {
+        font-size: 10pt;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="header">
+      <h1>{{name}}</h1>
+      <div class="contact-info">
+        {{phone}} &bull; {{email}} &bull; {{location}}<br />
+        <a href="{{linkedin}}" target="_blank">LinkedIn</a> &bull;
+        <a href="{{github}}" target="_blank">GitHub</a> &bull;
+        <a href="{{portfolio}}" target="_blank">Portfolio</a>
+      </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary-section">{{summary}}</div>
+
+    <!-- EXPERIENCE -->
+    <div class="section-title">Professional Experience</div>
+    <div>{{experience}}</div>
+
+    <!-- EDUCATION -->
+    <div class="section-title">Education</div>
+    <div>{{education}}</div>
+
+    <!-- PROJECTS -->
+    <div class="section-title">Projects</div>
+    <div>{{projects}}</div>
+
+    <!-- SKILLS -->
+    <div class="section-title">Skills</div>
+    <div class="skills-container">{{skills}}</div>
+
+    <!-- CERTIFICATIONS -->
+    <div class="section-title">Certifications</div>
+    <div>{{certifications}}</div>
+
+    <!-- LANGUAGES -->
+    <div class="section-title">Languages</div>
+    <div class="languages-text">{{languages}}</div>
+  </body>
+</html>
