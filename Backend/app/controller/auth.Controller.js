@@ -90,7 +90,7 @@ class Authcontroller {
       await user.save();
 
       // redirect frontend login page
-      return res.redirect("http://localhost:3000/login");
+    return res.redirect(`${process.env.FRONTEND_URL}/login`);
     } catch (error) {
       return res.status(500).json({
         success: false,
