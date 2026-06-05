@@ -1063,6 +1063,547 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "updatetest",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"JavaScript Coding Test\",\r\n  \"slug\": \"javascript-coding-test\",\r\n  \"description\": \"Basic to intermediate JS coding challenges\",\r\n  \"category\": \"66b1234567890abcdef1234\",\r\n  \"duration\": 90,\r\n  \"difficulty\": \"easy\",\r\n  \"instructions\": \"Solve all questions carefully within time limit\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/update/test/abc12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "update",
+                "test",
+                "abc12345"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/delete/test/abc12344r",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "delete",
+                "test",
+                "abc12344r"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "coding-question",
+      "item": [
+        {
+          "name": "create-coding-question(Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Reverse a String\",\r\n  \"slug\": \"reverse-a-string\",\r\n  \"problemStatement\": \"Write a function to reverse a given string.\",\r\n  \"difficulty\": \"easy\",\r\n  \"category\": \"66b1234567890abcdef1234\",\r\n  \"codingTest\": \"66b9876543210abcdef5678\",\r\n  \"marks\": 10,\r\n\r\n  \"constraints\": [\r\n    \"1 <= string length <= 1000\"\r\n  ],\r\n\r\n  \"examples\": [\r\n    {\r\n      \"input\": \"hello\",\r\n      \"output\": \"olleh\",\r\n      \"explanation\": \"Reverse the string character by character\"\r\n    }\r\n  ],\r\n\r\n  \"starterCode\": \"function reverseString(s) {\\n  // write code here\\n}\",\r\n\r\n  \"boilerplateCode\": \"function reverseString(s) {\\n\\n}\",\r\n\r\n  \"functionName\": \"reverseString\",\r\n\r\n  \"supportedLanguages\": [\"javascript\"],\r\n\r\n  \"testCases\": [\r\n    {\r\n      \"input\": \"hello\",\r\n      \"expectedOutput\": \"olleh\"\r\n    },\r\n    {\r\n      \"input\": \"world\",\r\n      \"expectedOutput\": \"dlrow\"\r\n    }\r\n  ],\r\n\r\n  \"timeLimit\": 2000,\r\n  \"memoryLimit\": 512,\r\n\r\n  \"isPublished\": false,\r\n  \"isActive\": true\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-question/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-question",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-codingquestion (Admin)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"Reverse a String (Updated Problem)\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-question/update/66b1234567890abcdef1234",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-question",
+                "update",
+                "66b1234567890abcdef1234"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-(Admin)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-question/delete/66b1234567890abcdef1234",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-question",
+                "delete",
+                "66b1234567890abcdef1234"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getallquestion(Admin)",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-question/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-question",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "coding-question-by-testId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-question/test/66b1234567890abcdef1234",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-question",
+                "test",
+                "66b1234567890abcdef1234"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "coding-submisson",
+      "item": [
+        {
+          "name": "submisson-code",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"codingTestId\": \"66b1234567890abcdef1234\",\r\n  \"questionId\": \"66b9876543210abcdef5678\",\r\n  \"submittedCode\": \"function reverseString(s) { return s.split('').reverse().join(''); }\",\r\n  \"language\": \"javascript\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-submission/submit",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-submission",
+                "submit"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "sabmisson-save-resutl",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"targetUserId\": \"66b111111111111111111111\",\r\n  \"codingTestId\": \"66b222222222222222222222\",\r\n  \"questionId\": \"66b333333333333333333333\",\r\n\r\n  \"submittedCode\": \"function reverseString(s) { return s.split('').reverse().join(''); }\",\r\n  \"language\": \"javascript\",\r\n\r\n  \"passedTestCases\": 5,\r\n  \"totalTestCases\": 5,\r\n\r\n  \"score\": 10,\r\n  \"totalMarks\": 10,\r\n  \"percentage\": 100,\r\n\r\n  \"executionTime\": 120,\r\n\r\n  \"status\": \"completed\",\r\n  \"finalResult\": \"accepted\",\r\n\r\n  \"judge0Token\": \"abc123token\",\r\n  \"judge0StatusId\": 3\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-submission/save",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-submission",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-submisson-history",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-submission/history",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-submission",
+                "history"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "leaderboard",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-test/66b1234567890abcdef1234/leaderboard",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-test",
+                "66b1234567890abcdef1234",
+                "leaderboard"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "mcqAnswer",
+      "item": [
+        {
+          "name": "submt-mcqanswer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"testId\": \"66b1234567890abcdef1234\",\r\n  \"timeTaken\": 900,\r\n\r\n  \"answers\": [\r\n    {\r\n      \"questionId\": \"66b111111111111111111111\",\r\n      \"selectedAnswer\": \"A\"\r\n    },\r\n    {\r\n      \"questionId\": \"66b222222222222222222222\",\r\n      \"selectedAnswer\": \"C\"\r\n    },\r\n    {\r\n      \"questionId\": \"66b333333333333333333333\",\r\n      \"selectedAnswer\": \"\"\r\n    }\r\n  ]\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/submit/ans",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "submit",
+                "ans"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getmcqanswer",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/result/abc123456",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "result",
+                "abc123456"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "my-result",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/my-results",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "my-results"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/leaderboard/66b222222222222222222222",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "leaderboard",
+                "66b222222222222222222222"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "analytics",
+      "item": [
+        {
+          "name": "Analytics",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/admin/analytics",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "admin",
+                "analytics"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     }
