@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const path = require("path");
 
 const sendResetPasswordMail = async (user, token) => {
-  const frontendUrl = process.env.FRONTEND_URL || "http://localhost:3000";
+  const frontendUrl = process.env.FRONTEND_URL ;
   const resetLink = `${frontendUrl}/reset-password?token=${token}`;
 
   try {
@@ -49,4 +49,4 @@ const sendResetPasswordMail = async (user, token) => {
   }
 };
 
-module.exports = sendResetPasswordMail;
+module.exports = sendResetPasswordMail;

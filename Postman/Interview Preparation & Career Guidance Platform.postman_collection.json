@@ -1,0 +1,1070 @@
+{
+  "info": {
+    "_postman_id": "3b841369-04e7-4ada-84d7-5543d640e0b5",
+    "name": "Interview Preparation & Career Guidance Platform",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "49030384",
+    "_collection_link": "https://go.postman.co/collection/49030384-3b841369-04e7-4ada-84d7-5543d640e0b5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "New Folder",
+          "item": []
+        },
+        {
+          "name": "reg",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "name",
+                  "value": "David Jones",
+                  "type": "text",
+                  "uuid": "1618a6b6-c841-47e6-8a2a-9821c5f6c84d"
+                },
+                {
+                  "key": "email",
+                  "value": "david@yopmail.com",
+                  "type": "text",
+                  "uuid": "e86e9392-d6ac-45c3-973c-947d3eda0ef3"
+                },
+                {
+                  "key": "password",
+                  "value": "1234",
+                  "type": "text",
+                  "uuid": "0fc3b10b-1b09-4113-9563-77e7b155ae8f"
+                },
+                {
+                  "key": "profileImage",
+                  "type": "file",
+                  "uuid": "d518bf4a-1e2b-4137-8aed-56803fd1a0a4",
+                  "src": "/C:/Users/David/Downloads/poco-x8-pro-launched-in-india.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/auth/register",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n \"email\":\"david@yopmail.com\",\r\n \"password\": \"1234\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Dashboard",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/profile",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "profile-Update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTMyMDhhY2ZhMDliZDM4NDEyNzVlZiIsIm5hbWUiOiJBcm5hYiBQYWxhZGhpIiwiZW1haWwiOiJhcm5hYjJAZ21haWwuY29tIiwiYWJvdXQiOiJmdWxsc3RhY2tkZXZlbG9wZXIiLCJpbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RkZTNhcGxmMi9pbWFnZS91cGxvYWQvdjE3NzIyOTgzNzcvcHJvZmlsZS91ano4eGlxcDl4ZjY5bWxmOHpmNy5wbmciLCJpYXQiOjE3NzIyOTg0MTQsImV4cCI6MTc3MjMwMjAxNH0.PhuY8SiI03XhXBHTWE8o0rhF6cQiJf4O4E0b3xHBHC8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Arnab Paladhi\",\r\n  \"email\": \"arnab@gmail.com\",\r\n  \"password\": \"12345678\",\r\n  \"phone\": \"9876543210\",\r\n  \"location\": \"Kharagpur\",\r\n  \"bio\": \"MERN Stack Developer\",\r\n  \"github\": \"https://github.com/arnab\",\r\n  \"linkedin\": \"https://linkedin.com/in/arnab\",\r\n  \"portfolio\": \"https://arnab.dev\",\r\n  \"skills\": [\"JavaScript\", \"React\", \"Node.js\", \"MongoDB\"],\r\n  \"education\": [\r\n    {\r\n      \"institute\": \"IIT Kharagpur\",\r\n      \"degree\": \"B.Tech\",\r\n      \"fieldOfStudy\": \"Computer Science\",\r\n      \"startYear\": \"2020\",\r\n      \"endYear\": \"2024\",\r\n      \"grade\": \"8.5 CGPA\"\r\n    }\r\n  ],\r\n  \"experience\": [\r\n    {\r\n      \"company\": \"Google\",\r\n      \"position\": \"Software Engineer\",\r\n      \"startDate\": \"Jan 2024\",\r\n      \"endDate\": \"Present\",\r\n      \"currentlyWorking\": true,\r\n      \"description\": \"Working on backend services\"\r\n    }\r\n  ],\r\n  \"projects\": [\r\n    {\r\n      \"title\": \"Job Portal\",\r\n      \"description\": \"Full Stack Job Portal\",\r\n      \"githubLink\": \"https://github.com/arnab/job-portal\",\r\n      \"liveLink\": \"https://jobportal.com\",\r\n      \"technologies\": [\"React\", \"Node.js\", \"MongoDB\"]\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/profile/update",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "profile",
+                "update"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "forget-password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"email\": \"example@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/auth/forget-password",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "forget-password"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "reset-password",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"newpassword\": \"newpassword123\",\r\n  \"confirmPassword\": \"newpassword123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/auth/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTMyMDhhY2ZhMDliZDM4NDEyNzVlZiIsIm5hbWUiOiJBcm5hYiBQYWxhZGhpIiwiZW1haWwiOiJhcm5hYjJAZ21haWwuY29tIiwiYWJvdXQiOiJmdWxsc3RhY2tkZXZlbG9wZXIiLCJpbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RkZTNhcGxmMi9pbWFnZS91cGxvYWQvdjE3NzIyOTgzNzcvcHJvZmlsZS91ano4eGlxcDl4ZjY5bWxmOHpmNy5wbmciLCJpYXQiOjE3NzIyOTg0MTQsImV4cCI6MTc3MjMwMjAxNH0.PhuY8SiI03XhXBHTWE8o0rhF6cQiJf4O4E0b3xHBHC8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "reset-password",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTMyMDhhY2ZhMDliZDM4NDEyNzVlZiIsIm5hbWUiOiJBcm5hYiBQYWxhZGhpIiwiZW1haWwiOiJhcm5hYjJAZ21haWwuY29tIiwiYWJvdXQiOiJmdWxsc3RhY2tkZXZlbG9wZXIiLCJpbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RkZTNhcGxmMi9pbWFnZS91cGxvYWQvdjE3NzIyOTgzNzcvcHJvZmlsZS91ano4eGlxcDl4ZjY5bWxmOHpmNy5wbmciLCJpYXQiOjE3NzIyOTg0MTQsImV4cCI6MTc3MjMwMjAxNH0.PhuY8SiI03XhXBHTWE8o0rhF6cQiJf4O4E0b3xHBHC8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Verify",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/auth/verify/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTMyMDhhY2ZhMDliZDM4NDEyNzVlZiIsIm5hbWUiOiJBcm5hYiBQYWxhZGhpIiwiZW1haWwiOiJhcm5hYjJAZ21haWwuY29tIiwiYWJvdXQiOiJmdWxsc3RhY2tkZXZlbG9wZXIiLCJpbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RkZTNhcGxmMi9pbWFnZS91cGxvYWQvdjE3NzIyOTgzNzcvcHJvZmlsZS91ano4eGlxcDl4ZjY5bWxmOHpmNy5wbmciLCJpYXQiOjE3NzIyOTg0MTQsImV4cCI6MTc3MjMwMjAxNH0.PhuY8SiI03XhXBHTWE8o0rhF6cQiJf4O4E0b3xHBHC8",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "auth",
+                "verify",
+                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTMyMDhhY2ZhMDliZDM4NDEyNzVlZiIsIm5hbWUiOiJBcm5hYiBQYWxhZGhpIiwiZW1haWwiOiJhcm5hYjJAZ21haWwuY29tIiwiYWJvdXQiOiJmdWxsc3RhY2tkZXZlbG9wZXIiLCJpbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RkZTNhcGxmMi9pbWFnZS91cGxvYWQvdjE3NzIyOTgzNzcvcHJvZmlsZS91ano4eGlxcDl4ZjY5bWxmOHpmNy5wbmciLCJpYXQiOjE3NzIyOTg0MTQsImV4cCI6MTc3MjMwMjAxNH0.PhuY8SiI03XhXBHTWE8o0rhF6cQiJf4O4E0b3xHBHC8"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "resend-verifylink",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"email\":\"example@gmail.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/resend/verification",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "resend",
+                "verification"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "changepassword",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YTMyMDhhY2ZhMDliZDM4NDEyNzVlZiIsIm5hbWUiOiJBcm5hYiBQYWxhZGhpIiwiZW1haWwiOiJhcm5hYjJAZ21haWwuY29tIiwiYWJvdXQiOiJmdWxsc3RhY2tkZXZlbG9wZXIiLCJpbWFnZSI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL2RkZTNhcGxmMi9pbWFnZS91cGxvYWQvdjE3NzIyOTgzNzcvcHJvZmlsZS91ano4eGlxcDl4ZjY5bWxmOHpmNy5wbmciLCJpYXQiOjE3NzIyOTg0MTQsImV4cCI6MTc3MjMwMjAxNH0.PhuY8SiI03XhXBHTWE8o0rhF6cQiJf4O4E0b3xHBHC8",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"oldPassword\":\"abc123\",\r\n    \"newPassword\":\"abc213\",\r\n    \"confirmPassword\":\"abc213\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/chanagepassword",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "chanagepassword"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Category",
+      "item": [
+        {
+          "name": "create-category",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"Node\",\r\n    \"description\": \"abc\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/create/category",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "create",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "public-category",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/category",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-category",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\"name\":\"react\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/update/category/123456abc",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "update",
+                "category",
+                "123456abc"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-cat",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "BearerBearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/delete/category/abc12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "delete",
+                "category",
+                "abc12345"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Ai-chat",
+      "item": [
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"Node.js roadmap\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/chat",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "chat"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "resume",
+      "item": [
+        {
+          "name": "create-resume",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Mrnsatck developr",
+                  "type": "text",
+                  "uuid": "43135437-a54a-49f0-892f-8ea747d38043"
+                },
+                {
+                  "key": "summary",
+                  "value": "title",
+                  "type": "text",
+                  "uuid": "b0348259-cf2f-4cc4-ab52-395fdbef63d9"
+                },
+                {
+                  "key": "fullName",
+                  "value": "Peter Parker",
+                  "type": "text",
+                  "uuid": "69fedbd3-eb8f-4035-864e-84ff4e76e369"
+                },
+                {
+                  "key": "email",
+                  "value": "petter@youpmail.com",
+                  "type": "text",
+                  "uuid": "8bc7bde4-482e-451b-b0c6-be3a767ebc2e"
+                },
+                {
+                  "key": "phone",
+                  "value": "12345678",
+                  "type": "text",
+                  "uuid": "e4eaa03d-ff40-4b5d-9793-8da5e45fb867"
+                },
+                {
+                  "key": "resumeImage",
+                  "type": "file",
+                  "uuid": "d06468ae-287f-4364-8050-6ed01207af79",
+                  "src": "/C:/Users/David/Downloads/Samsung-Laptop.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/create/resume",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "create",
+                "resume"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "get-public-resume",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/resume",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "resume"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"user\": \"66b1234567890abcdef1234\",\r\n  \"title\": \"Full Stack Developer Resume\",\r\n  \"fullName\": \"John Doe\",\r\n  \"email\": \"john@gmail.com\",\r\n  \"phone\": \"9876543210\",\r\n  \"location\": \"Durgapur, India\",\r\n  \"github\": \"https://github.com/johndoe\",\r\n  \"portfolio\": \"https://johndoe.dev\",\r\n  \"linkedin\": \"https://linkedin.com/in/johndoe\",\r\n  \"summary\": \"Experienced MERN stack developer building scalable web apps.\",\r\n  \"skills\": [\"React\", \"Node.js\", \"Express\", \"MongoDB\"],\r\n\r\n  \"education\": [\r\n    {\r\n      \"institute\": \"XYZ University\",\r\n      \"degree\": \"B.Tech\",\r\n      \"fieldOfStudy\": \"Computer Science\",\r\n      \"startYear\": \"2020\",\r\n      \"endYear\": \"2024\",\r\n      \"grade\": \"8.5 CGPA\"\r\n    }\r\n  ],\r\n\r\n  \"experience\": [\r\n    {\r\n      \"company\": \"ABC Pvt Ltd\",\r\n      \"position\": \"Frontend Developer\",\r\n      \"startDate\": \"2023-01\",\r\n      \"endDate\": \"2024-01\",\r\n      \"currentlyWorking\": false,\r\n      \"description\": \"Worked on React-based dashboard.\"\r\n    }\r\n  ],\r\n\r\n  \"projects\": [\r\n    {\r\n      \"title\": \"Portfolio Website\",\r\n      \"description\": \"Personal portfolio using React\",\r\n      \"githubLink\": \"https://github.com/johndoe/portfolio\",\r\n      \"liveLink\": \"https://johndoe.dev\",\r\n      \"technologies\": [\"React\", \"CSS\"]\r\n    }\r\n  ],\r\n\r\n  \"languages\": [\"English\", \"Hindi\"],\r\n\r\n  \"template\": \"modern\",\r\n  \"themeColor\": \"#2563eb\",\r\n\r\n  \"certifications\": [\r\n    {\r\n      \"title\": \"MERN Stack Certification\",\r\n      \"issuer\": \"Udemy\",\r\n      \"issueDate\": \"2024-05\",\r\n      \"certificateLink\": \"https://udemy.com/certificate/xyz\"\r\n    }\r\n  ],\r\n\r\n  \"resumeImage\": \"https://example.com/image.png\",\r\n  \"resumeImagepublic_Id\": \"resume_123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/updatesingale/resume/abc1234",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "updatesingale",
+                "resume",
+                "abc1234"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/resume/delete/abc12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "resume",
+                "delete",
+                "abc12345"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "dowunload-resume",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5273/api/v1//resume/dowunload/abc1234",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "",
+                "resume",
+                "dowunload",
+                "abc1234"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "run-code-vm",
+      "item": [
+        {
+          "name": "coder-runner",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/run-code-vm",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "run-code-vm"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Test-controller[Admin]",
+      "item": [
+        {
+          "name": "create-test Admin only",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"JavaScript Basics Test\",\r\n  \"categoryId\": \"66b1234567890abcdef1234\",\r\n  \"description\": \"Basic JavaScript interview and practice questions\",\r\n  \"duration\": 60,\r\n  \"difficulty\": \"medium\",\r\n  \"isPublished\": false\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/create/test",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "create",
+                "test"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Gettest",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"Node.js roadmap\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/test",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "test"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"JavaScript Basics Test\",\r\n  \"categoryId\": \"66b1234567890abcdef1234\",\r\n  \"description\": \"Basic JavaScript interview and practice questions\",\r\n  \"duration\": 60,\r\n  \"difficulty\": \"medium\",\r\n  \"isPublished\": false\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/update/test/abc1234",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "update",
+                "test",
+                "abc1234"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete-test",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:5273/api/v1/delete/test/abcgh12345",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "delete",
+                "test",
+                "abcgh12345"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Mcq-question",
+      "item": [
+        {
+          "name": "create-question(Admin)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"testId\": \"66b1234567890abcdef1234\",\r\n  \"question\": \"What is JavaScript?\",\r\n  \"options\": [\r\n    \"Programming Language\",\r\n    \"Database\",\r\n    \"Operating System\",\r\n    \"Browser\"\r\n  ],\r\n  \"correctAnswer\": \"Programming Language\",\r\n  \"explanation\": \"JavaScript is a programming language used for web development.\",\r\n  \"marks\": 5,\r\n  \"questionTime\": 60\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/create/question",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "create",
+                "question"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getQuestionby Test give testId",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/test/123456",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "test",
+                "123456"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update-test (Admin)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"testId\": \"66b1234567890abcdef1234\",\r\n  \"question\": \"What is JavaScript?\",\r\n  \"options\": [\r\n    \"Programming Language\",\r\n    \"Database\",\r\n    \"Operating System\",\r\n    \"Browser\"\r\n  ],\r\n  \"correctAnswer\": \"Programming Language\",\r\n  \"explanation\": \"JavaScript is a programming language used for web development.\",\r\n  \"marks\": 5,\r\n  \"questionTime\": 60\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "New Request",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"Node.js roadmap\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/questions/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "questions",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "codingtest",
+      "item": [
+        {
+          "name": "create-coding-test",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhMTU3ZTMwNmFhZjRiOGUzYzU3OWEyZCIsIm5hbWUiOiJEYXZpZCBKb25lcyIsImVtYWlsIjoicm93YW5AeW9wbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR5YkpseDdJRldWSld5bTZEcmlZRmVleUlPSlZFZjZFcC54LnBPUnF0YmpGcnQ4SVd6bjV4MiIsImlhdCI6MTc3OTc5MzkwNCwiZXhwIjoxNzc5Nzk3NTA0fQ.CurPJESJKzM-YnCUQgAgf4ItJUAIm9Wk-1SE0AP9JLE",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"title\": \"JavaScript Coding Test\",\r\n  \"slug\": \"javascript-coding-test\",\r\n  \"description\": \"Basic to intermediate JS coding challenges\",\r\n  \"category\": \"66b1234567890abcdef1234\",\r\n  \"duration\": 90,\r\n  \"difficulty\": \"easy\",\r\n  \"instructions\": \"Solve all questions carefully within time limit\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-test/create",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-test",
+                "create"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "getTest",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"Node.js roadmap\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-test/all",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-test",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "gettest-single",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"code\": \"console.log('Hello World')\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:5273/api/v1/coding-test/single/abc123456",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "5273",
+              "path": [
+                "api",
+                "v1",
+                "coding-test",
+                "single",
+                "abc123456"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

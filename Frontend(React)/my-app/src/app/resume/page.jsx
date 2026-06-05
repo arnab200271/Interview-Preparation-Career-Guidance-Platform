@@ -1597,12 +1597,23 @@ export default function ResumePage() {
       document.body.removeChild(link);
       toast.success("PDF Downloaded successfully!");
     } catch (err) {
-      console.warn("Direct blob download failed, trying tab fallback...", err);
+      console.warn("Direct blob download failed, trying fetch fallback...", err);
       try {
         const token = localStorage.getItem("token");
-        const downloadUrl = `http://localhost:5273/api/v1/resume/dowunload/${formData.id}${token ? `?token=${token}` : ""}`;
-        window.open(downloadUrl, "_blank");
-        toast.info("Opening download link in a new tab...");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/resume/dowunload/${formData.id}`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+        if (!response.ok) throw new Error("Failed to download");
+        const blob = await response.blob();
+        const link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.download = `${formData.fullName.replace(/\s+/g, "_")}_Resume.pdf`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        toast.success("PDF Downloaded successfully!");
       } catch (fallbackErr) {
         toast.error("Could not fetch the generated PDF file.");
       }

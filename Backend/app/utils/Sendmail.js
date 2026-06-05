@@ -3,7 +3,7 @@ const ejs = require("ejs");
 const path = require("path");
 
 const sendmail = async (user, token) => {
-  const backendUrl = process.env.BACKEND_URL || "http://localhost:5273";
+  const backendUrl = process.env.BACKEND_URL;
   const link = `${backendUrl}/api/v1/auth/verify/${token}`;
 
   try {

@@ -63,7 +63,7 @@ function EmailSentScreen({ email }) {
   // Handle resend toasts
   useEffect(() => {
     if (resendStatus === "success") {
-      toast.success("✅ Verification email resent! Check your inbox.");
+      toast.success(" Verification email resent! Check your inbox.");
       // Restart the 60s cooldown
       setResendCount((c) => c + 1);
       setCountdownActive(false);

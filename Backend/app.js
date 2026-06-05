@@ -8,7 +8,12 @@ const Databaseconnection = require('./app/config/db')
 const app = express()
 Databaseconnection()
 app.use(express.json())
- app.use(cors())
+ app.use(cors({
+   origin: '*',
+   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+   allowedHeaders: ['Content-Type', 'Authorization'],
+   credentials: false,
+ }))
 //Router
 const Router = require('./app/router/Index')
  app.use(Router)
@@ -29,7 +34,7 @@ io.on("connection", (socket) => {
     console.log("User Disconnected:", socket.id);
   });
 });
-const PORT = 5273
+const PORT = process.env.PORT || 5273
  server.listen(PORT,()=>{
     console.log(`Server Runing On ${PORT}`)
  })
