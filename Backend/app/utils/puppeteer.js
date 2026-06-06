@@ -1,14 +1,14 @@
-const puppeteer = require("puppeteer");
+const puppeteer = require("puppeteer-core");
+const chromium = require("@sparticuz/chromium");
 
 const generateResumePDF = async (htmlContent) => {
   try {
     // Launch browser
     const browser = await puppeteer.launch({
-      headless: "new",
-      args: [
-        "--no-sandbox",
-        "--disable-setuid-sandbox",
-      ],
+      args: chromium.args,
+      defaultViewport: chromium.defaultViewport,
+      executablePath: await chromium.executablePath(),
+      headless: true,
     });
 
     // New page
@@ -55,7 +55,6 @@ const generateResumePDF = async (htmlContent) => {
     await browser.close();
 
     return pdfBuffer;
-
   } catch (error) {
     console.log("PDF Generate Error:", error);
     throw error;
