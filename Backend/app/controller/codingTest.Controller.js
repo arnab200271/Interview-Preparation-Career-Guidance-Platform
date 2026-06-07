@@ -61,17 +61,6 @@ class codingTestController {
         createdBy: userId,
       });
 
-      // Emit real-time notification to all connected clients
-      const notifPayload = {
-        title: "New Coding Challenge Published",
-        message: `"${codingTest.title}" is now available. Challenge yourself!`,
-        type: "challenge",
-        createdAt: new Date().toISOString(),
-      };
-      await notificationmodel.create(notifPayload);
-      const io = getIO();
-      if (io) io.emit("newNotification", notifPayload);
-
       return res.status(201).json({
         success: true,
         message: "Coding test created successfully",

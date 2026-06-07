@@ -14,7 +14,7 @@ const notificationSchema = new schema(
 
     type: {
       type: String,
-      enum: ["test", "coding", "resume", "general", "challenge",],
+      enum: ["test", "coding", "resume", "general","challenge",],
       default: "general",
     },
 
